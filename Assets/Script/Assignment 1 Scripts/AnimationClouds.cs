@@ -22,14 +22,14 @@ public class AnimationClouds : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (time <= 1)
-            {
-                time += .0005f;
+        if (time <= 1)
+        {
+            time += .0005f;
 
 
-                transform.localScale = Vector2.one * curve.Evaluate(time);
+            transform.localScale = Vector2.one * curve.Evaluate(time);
 
-            }
+        }
         }
 
         else
@@ -42,7 +42,7 @@ public class AnimationClouds : MonoBehaviour
             {
                 time = 0;
 
-            }
+    }
             transform.localScale = Vector2.one * curve.Evaluate(time);
         }
     }

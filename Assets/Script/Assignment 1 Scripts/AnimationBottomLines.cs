@@ -17,21 +17,21 @@ public class AnimationBottomLines : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (Input.GetMouseButton(0))
         {
-            if (time <= 1)
-            {
-                time += .0005f;
+        if (time <= 1)
+        {
+            time += .0005f;
 
-
-                transform.localScale = Vector2.one * curve.Evaluate(time);
-
-            }
+            
+            transform.localScale = Vector2.one * curve.Evaluate(time);
+          
+        }
         }
 
 
-
+        
         else
         {
             if (time > 0)
@@ -48,7 +48,7 @@ public class AnimationBottomLines : MonoBehaviour
 
 
 
-        }
+    }
 
 
 

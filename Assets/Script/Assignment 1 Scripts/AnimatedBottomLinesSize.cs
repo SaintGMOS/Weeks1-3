@@ -23,9 +23,9 @@ public class AnimatedBottomLinesSize : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             isPressed = true;
-            if (time <= 1)
-            {
-                time += 0.002f; // Increment time slowly
+        if (time <= 1)
+        {
+            time += 0.002f; // Increment time slowly
 
                 // Evaluate the curve and apply to X scale
                 float newXScale = curve.Evaluate(time);
@@ -43,13 +43,13 @@ public class AnimatedBottomLinesSize : MonoBehaviour
             else 
             {
                 time = 0;
-                isPressed = false;
 
             }
 
             float newXScale = curve.Evaluate(time);
             transform.localScale = new Vector3(newXScale, transform.localScale.y, transform.localScale.z);
-
+            
+            transform.localScale = new Vector3(newXScale, transform.localScale.y,0);
         }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PeopleMovement : MonoBehaviour
 {
-    public float speed = 0.05f;
+    public float speed = 0.05f; // Movement speed of the object.
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +15,8 @@ public class PeopleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get the current position of the object.
         Vector3 pos = transform.position;
-        pos.x += speed * Time.deltaTime; // Time.deltaTime Changes it MPS/UnitsPS
 
         Vector2 screenPos = Camera.main.WorldToScreenPoint(pos);
 

@@ -19,17 +19,17 @@ public class AnimationMiddleBorderLine : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            // Only update `time` if it's within range
-            if (time <= 1)
-            {
-                time += 0.0005f; // Increment time slowly
+        // Only update `time` if it's within range
+        if (time <= 1)
+        {
+            time += 0.0005f; // Increment time slowly
 
-                // Evaluate the curve and apply to Y scale
-                float newXScale = curve.Evaluate(time);
+            // Evaluate the curve and apply to Y scale
+            float newXScale = curve.Evaluate(time);
 
-                // Update the object's scale, changing only the Y-axis
-                transform.localScale = new Vector3(newXScale, transform.localScale.y, 0);
-            }
+            // Update the object's scale, changing only the Y-axis
+            transform.localScale = new Vector3(newXScale, transform.localScale.y, 0);
+        }
         }
 
         else

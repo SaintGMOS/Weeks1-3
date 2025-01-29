@@ -21,15 +21,15 @@ public class AnimationSun : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            if (time <= 1)
-            {
-                time += .0005f;
+        if (time <= 1)
+        {
+            time += .0005f;
 
 
-                transform.localScale = Vector2.one * curve.Evaluate(time);
+            transform.localScale = Vector2.one * curve.Evaluate(time);
 
-            }
-            transform.Rotate(0, 0, speed * Time.deltaTime);
+        }
+     transform.Rotate(0, 0, speed * Time.deltaTime);
         }
 
         else
@@ -38,7 +38,7 @@ public class AnimationSun : MonoBehaviour
             {
                 time -= 0.005f;
                 
-            }
+    }
             else
             {
                 time = 0;
