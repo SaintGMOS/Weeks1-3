@@ -19,14 +19,15 @@ public class AnimationClouds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // If the left mouse button is pressed, grow the object
         if (Input.GetMouseButton(0))
         {
+            // Update time
         if (time <= 1)
         {
-            time += .0005f;
+            time += .0005f; // Slowly increase time
 
-
+             // Apply scaling using the animation curve
             transform.localScale = Vector2.one * curve.Evaluate(time);
 
         }
@@ -34,15 +35,17 @@ public class AnimationClouds : MonoBehaviour
 
         else
         {
+            // If the mouse button is released, shrink the object smoothly
             if (time > 0)
             {
-                time -= 0.005f;
+                time -= 0.005f; // Gradually decrease time
             }
             else
             {
-                time = 0;
+                time = 0; // Ensure time does not go below 0
 
-    }
+            }
+            // Apply reverse scaling using the animation curve
             transform.localScale = Vector2.one * curve.Evaluate(time);
         }
     }

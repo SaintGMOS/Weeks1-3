@@ -17,9 +17,10 @@ public class AnimationMiddleBorderLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the left mouse button is pressed, grow the object's width
         if (Input.GetMouseButton(0))
         {
-        // Only update `time` if it's within range
+        // Only update time if it's within range
         if (time <= 1)
         {
             time += 0.0005f; // Increment time slowly
@@ -34,16 +35,19 @@ public class AnimationMiddleBorderLine : MonoBehaviour
 
         else
         {
+            // If the mouse button is released, shrink the object smoothly
             if (time > 0)
             {
-                time -= 0.005f;
+                time -= 0.005f; // Gradually decrease time
             }
             else
             {
                 time = 0;
             }
-
+            // Evaluate the curve and apply to the X-axis scale
             float newXScale = curve.Evaluate(time);
+
+            // Update the object's scale, modifying only the X-axis
             transform.localScale = new Vector3(newXScale, transform.localScale.y, transform.localScale.z);
 
         }

@@ -17,15 +17,16 @@ public class AnimationBottomLines : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // If the left mouse button is pressed, increase the object's size
         if (Input.GetMouseButton(0))
         {
+        // Update time
         if (time <= 1)
         {
-            time += .0005f;
+            time += .0005f; // Slowly increase time
 
-            
-            transform.localScale = Vector2.one * curve.Evaluate(time);
+                // Apply scaling using the animation curve
+                transform.localScale = Vector2.one * curve.Evaluate(time);
           
         }
         }
@@ -34,15 +35,18 @@ public class AnimationBottomLines : MonoBehaviour
         
         else
         {
+            // If the mouse button is released, decrease the object's size 
             if (time > 0)
             {
-                time -= 0.002f;
+                time -= 0.002f; // Gradually decrease time
             }
             else
             {
-                time = 0;
+                time = 0; // Ensure time does not go below 0
 
             }
+
+            // Apply reverse scaling using the animation curve
             transform.localScale = Vector2.one * curve.Evaluate(time);
         }
 

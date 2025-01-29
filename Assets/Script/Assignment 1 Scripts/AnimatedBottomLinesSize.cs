@@ -9,7 +9,7 @@ public class AnimatedBottomLinesSize : MonoBehaviour
     public AnimationCurve curve;
     [Range(0, 1)]
     public float time;
-    private bool isPressed = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +20,10 @@ public class AnimatedBottomLinesSize : MonoBehaviour
     void Update()
     {
 
+        // If the left mouse button is pressed, increase the object's width
         if (Input.GetMouseButton(0))
         {
-            isPressed = true;
+         // Update time
         if (time <= 1)
         {
             time += 0.002f; // Increment time slowly
@@ -30,25 +31,27 @@ public class AnimatedBottomLinesSize : MonoBehaviour
                 // Evaluate the curve and apply to X scale
                 float newXScale = curve.Evaluate(time);
 
+                // Update the object's scale, modifying only the X-axis
                 transform.localScale = new Vector3(newXScale, transform.localScale.y, 0);
             }
 
         }
         else
         {
+            // If the mouse button is released, shrink the object
             if (time > 0)
             {
-                time -= 0.002f;
+                time -= 0.002f; // Gradually decrease time
             }
             else 
             {
-                time = 0;
+                time = 0; // Ensure time does not go below 0
 
             }
 
+            // Evaluate the curve and apply to X-axis scale
             float newXScale = curve.Evaluate(time);
-            transform.localScale = new Vector3(newXScale, transform.localScale.y, transform.localScale.z);
-            
+            // Update the object's scale, modifying only the X-axis
             transform.localScale = new Vector3(newXScale, transform.localScale.y,0);
         }
 
